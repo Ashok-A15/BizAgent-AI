@@ -50,9 +50,12 @@ uvicorn main:app --reload --port 8000
 Access the API:
 - Root endpoint: http://127.0.0.1:8000/
 - Health check: http://127.0.0.1:8000/health
+- Documents upload: http://127.0.0.1:8000/api/documents/upload
+- Documents list: http://127.0.0.1:8000/api/documents
 - Swagger API documentation: http://127.0.0.1:8000/docs
 
 ## Project Status
 
 - **Day 1**: Initial backend skeleton setup complete (FastAPI app, MongoDB connection helper, Pydantic data models, pinned dependencies).
-- RAG pipelines, chat endpoints, document upload, and frontend interfaces are planned for subsequent phases.
+- **Day 2**: Document upload, text extraction (.pdf & .txt), RecursiveCharacterTextSplitter chunking, Gemini embeddings, and ChromaDB persistent vector storage setup complete.
+- RAG chat answering, agent tool calling, and React frontend interfaces are planned for subsequent phases.

@@ -1,7 +1,11 @@
 .env
+backend/.env
 venv/
 __pycache__/
 *.pyc
 chromadb_data/
+backend/chromadb_data/
+uploads/
+backend/uploads/
 *.db
 serviceAccountKey.json
