@@ -1,1 +1,58 @@
-# -BizAgent-AI
+# BizAgent AI
+
+BizAgent AI is an AI agent platform for small businesses that enables customers to interact with an AI assistant grounded strictly in business documents. The agent assists with answering inquiries via RAG, booking appointments, creating support tickets, and capturing customer leads.
+
+## Tech Stack
+
+- **Backend**: FastAPI, Python 3.13
+- **Database & Storage**: MongoDB, ChromaDB
+- **AI & Orchestration**: Google Gemini, LangChain
+- **Frontend**: React (planned)
+- **Deployment & Infra**: Docker, AWS (planned)
+
+## Getting Started
+
+### 1. Prerequisites
+- Python 3.13 installed
+- MongoDB (optional for basic health check; required for persistence)
+
+### 2. Virtual Environment Setup
+```bash
+# Create virtual environment with Python 3.13
+python -m venv venv
+
+# Activate virtual environment
+# Windows (PowerShell):
+.\venv\Scripts\Activate.ps1
+# Linux/macOS:
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+```bash
+pip install -r backend/requirements.txt
+```
+
+### 4. Environment Variables
+Copy `.env.example` to `.env` inside the `backend` directory:
+```bash
+cp backend/.env.example backend/.env
+```
+Configure your environment variables in `backend/.env`.
+
+### 5. Run the Server
+From the `backend/` directory:
+```bash
+cd backend
+uvicorn main:app --reload --port 8000
+```
+
+Access the API:
+- Root endpoint: http://127.0.0.1:8000/
+- Health check: http://127.0.0.1:8000/health
+- Swagger API documentation: http://127.0.0.1:8000/docs
+
+## Project Status
+
+- **Day 1**: Initial backend skeleton setup complete (FastAPI app, MongoDB connection helper, Pydantic data models, pinned dependencies).
+- RAG pipelines, chat endpoints, document upload, and frontend interfaces are planned for subsequent phases.

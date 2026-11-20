@@ -1,0 +1,7 @@
+.env
+venv/
+__pycache__/
+*.pyc
+chromadb_data/
+*.db
+serviceAccountKey.json
