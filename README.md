@@ -14,7 +14,7 @@ BizAgent AI is an AI agent platform for small businesses that enables customers 
 
 ### 1. Prerequisites
 - Python 3.13 installed
-- MongoDB (optional for basic health check; required for persistence)
+- MongoDB (running locally or MongoDB Atlas)
 
 ### 2. Virtual Environment Setup
 ```bash
@@ -53,11 +53,13 @@ Access the API:
 - Documents upload: http://127.0.0.1:8000/api/documents/upload
 - Documents list: http://127.0.0.1:8000/api/documents
 - RAG chat: http://127.0.0.1:8000/api/chat
+- Agent tool chat: http://127.0.0.1:8000/api/agent/chat
 - Swagger API documentation: http://127.0.0.1:8000/docs
 
 ## Project Status
 
 - **Day 1**: Initial backend skeleton setup complete (FastAPI app, MongoDB connection helper, Pydantic data models, pinned dependencies).
 - **Day 2**: Document upload, text extraction (.pdf & .txt), RecursiveCharacterTextSplitter chunking, Gemini embeddings (models/gemini-embedding-001), and ChromaDB persistent vector storage setup complete.
-- **Day 3**: RAG chat endpoint (/api/chat) with Gemini (gemini-3.8-flash) grounded strictly in uploaded documents with citations.
-- Tool calling (appointments, tickets, leads), React frontend interfaces, Docker containers, and AWS deployment are planned for subsequent phases.
+- **Day 3**: RAG chat endpoint (/api/chat) with Gemini (gemini-3.6-flash) grounded strictly in uploaded documents with citations.
+- **Day 4**: Agent tool calling (/api/agent/chat) with intelligent intent routing (book appointment, create ticket, save lead) persisting directly to MongoDB.
+- Protocol/toolkit enhancements (MCP, Google ADK), React frontend, Docker containerization, and AWS deployment are planned for subsequent phases.

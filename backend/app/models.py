@@ -13,6 +13,7 @@ class Lead(BaseModel):
     name: str
     phone: str
     business_id: str
+    interest: Optional[str] = ""
 
 
 class Ticket(BaseModel):
@@ -21,3 +22,14 @@ class Ticket(BaseModel):
     description: str
     business_id: str
     status: str = "open"
+
+
+class Appointment(BaseModel):
+    id: Optional[str] = None
+    business_id: str
+    customer_name: str
+    phone: str
+    date: str  # format YYYY-MM-DD
+    time: str  # format HH:MM
+    service: str
+    status: str = "booked"

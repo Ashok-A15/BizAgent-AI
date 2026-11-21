@@ -2,7 +2,7 @@ from typing import List, Dict, Any
 import google.generativeai as genai
 from app.config import GEMINI_API_KEY
 
-CHAT_MODEL_NAME = "gemini-3.8-flash"
+CHAT_MODEL_NAME = "gemini-3.6-flash"
 SYSTEM_INSTRUCTION = (
     "Answer ONLY from the context below. If the answer is not in the context, "
     "say 'I don't know based on the documents provided.' Do not invent facts. "
