@@ -11,10 +11,12 @@ else:
 from fastapi import FastAPI
 from app.database import check_mongo_connection
 from app.routers.documents import router as documents_router
+from app.routers.chat import router as chat_router
 
 app = FastAPI(title="BizAgent AI Backend", version="0.1.0")
 
 app.include_router(documents_router)
+app.include_router(chat_router)
 
 
 @app.get("/")
