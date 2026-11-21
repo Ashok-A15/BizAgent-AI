@@ -14,7 +14,7 @@ BizAgent AI is an AI agent platform for small businesses that enables customers 
 
 ### 1. Prerequisites
 - Python 3.13 installed
-- MongoDB (optional for basic health check; required for persistence)
+- MongoDB (running locally or MongoDB Atlas)
 
 ### 2. Virtual Environment Setup
 ```bash
@@ -52,10 +52,19 @@ Access the API:
 - Health check: http://127.0.0.1:8000/health
 - Documents upload: http://127.0.0.1:8000/api/documents/upload
 - Documents list: http://127.0.0.1:8000/api/documents
+- RAG chat: http://127.0.0.1:8000/api/chat
+- Agent tool chat: http://127.0.0.1:8000/api/agent/chat
+- ADK agent chat: http://127.0.0.1:8000/api/adk/chat
 - Swagger API documentation: http://127.0.0.1:8000/docs
+
+MCP Server:
+- Stdio transport: `python backend/mcp_server.py`
 
 ## Project Status
 
 - **Day 1**: Initial backend skeleton setup complete (FastAPI app, MongoDB connection helper, Pydantic data models, pinned dependencies).
-- **Day 2**: Document upload, text extraction (.pdf & .txt), RecursiveCharacterTextSplitter chunking, Gemini embeddings, and ChromaDB persistent vector storage setup complete.
-- RAG chat answering, agent tool calling, and React frontend interfaces are planned for subsequent phases.
+- **Day 2**: Document upload, text extraction (.pdf & .txt), RecursiveCharacterTextSplitter chunking, Gemini embeddings (`models/gemini-embedding-001`), and ChromaDB persistent vector storage setup complete.
+- **Day 3**: RAG chat endpoint (`/api/chat`) with Gemini (`gemini-3.6-flash`) grounded strictly in uploaded documents with citations.
+- **Day 4**: Agent tool calling (`/api/agent/chat`) with intent routing (book appointment, create ticket, save lead) persisting directly to MongoDB.
+- **Day 4b**: FastMCP server (`backend/mcp_server.py`) exposing 4 tools (`search_documents`, `book_appointment`, `create_ticket`, `save_lead`) over stdio transport + Google ADK agent (`gemini-3.6-flash`) integrated with Runner and InMemorySessionService, accessible via `POST /api/adk/chat`.
+- React frontend, Docker containerization, and AWS deployment are planned for subsequent phases.
