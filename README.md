@@ -42,14 +42,35 @@ Configure your environment variables in `backend/.env`.
 
 ### 5. Run the Application
 
-#### Run the Backend Server
+#### Option A: Run with Docker (Recommended)
+Build and run both backend and frontend with a single command:
+```bash
+docker compose up --build
+```
+Or run in detached mode:
+```bash
+docker compose up --build -d
+```
+Access the application:
+- Frontend: http://localhost:5173
+- Backend: http://localhost:8000
+- Health check: http://localhost:8000/health
+
+Stop containers:
+```bash
+docker compose down
+```
+
+#### Option B: Run Locally
+
+##### Run the Backend Server
 From the `backend/` directory:
 ```bash
 cd backend
 uvicorn main:app --reload --port 8000
 ```
 
-#### Run the Frontend
+##### Run the Frontend
 From the `frontend/` directory:
 ```bash
 cd frontend
@@ -82,4 +103,5 @@ MCP Server:
 - **Day 4**: Agent tool calling (`/api/agent/chat`) with intent routing (book appointment, create ticket, save lead) persisting directly to MongoDB.
 - **Day 4b**: FastMCP server (`backend/mcp_server.py`) exposing 4 tools (`search_documents`, `book_appointment`, `create_ticket`, `save_lead`) over stdio transport + Google ADK agent (`gemini-3.6-flash`) integrated with Runner and InMemorySessionService, accessible via `POST /api/adk/chat`.
 - **Day 5**: React frontend (Vite) with 3 pages (Customer Chat, Upload Documents, Admin Dashboard), FastAPI CORS middleware, and admin list endpoints (`GET /api/admin/tickets`, `GET /api/admin/appointments`, `GET /api/admin/leads`).
-- Docker containerization and AWS deployment are planned for subsequent phases.
+- **Day 6**: Docker containerization — backend (`python:3.13-slim`), multi-stage frontend build with Nginx (`node:22-alpine` -> `nginx:alpine`), and Docker Compose orchestration (`docker compose up --build`).
+- AWS and Vercel deployments are planned for Day 7.
