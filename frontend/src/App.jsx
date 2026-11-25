@@ -8,27 +8,41 @@ export default function App() {
 
   return (
     <div className="container">
-      <header>
-        <h1>BizAgent AI</h1>
-        <p>Intelligent AI Agent Platform for Small Businesses</p>
-        <nav className="tabs">
+      <header className="app-header">
+        <div className="brand-wrapper">
+          <div className="brand-icon">B</div>
+          <div className="brand-info">
+            <h1>
+              BizAgent AI
+              <span className="status-badge">
+                <span className="status-dot"></span> Online
+              </span>
+            </h1>
+            <p>Intelligent AI Agent for Small Businesses</p>
+          </div>
+        </div>
+
+        <nav className="tabs-nav" aria-label="Main Navigation">
           <button
-            className={`tab-btn ${activeTab === 'chat' ? 'active' : ''}`}
+            type="button"
+            className={`tab-pill ${activeTab === 'chat' ? 'active' : ''}`}
             onClick={() => setActiveTab('chat')}
           >
-            Chat
+            💬 Chat
           </button>
           <button
-            className={`tab-btn ${activeTab === 'upload' ? 'active' : ''}`}
+            type="button"
+            className={`tab-pill ${activeTab === 'upload' ? 'active' : ''}`}
             onClick={() => setActiveTab('upload')}
           >
-            Upload
+            📁 Upload
           </button>
           <button
-            className={`tab-btn ${activeTab === 'admin' ? 'active' : ''}`}
+            type="button"
+            className={`tab-pill ${activeTab === 'admin' ? 'active' : ''}`}
             onClick={() => setActiveTab('admin')}
           >
-            Admin
+            📊 Admin
           </button>
         </nav>
       </header>
