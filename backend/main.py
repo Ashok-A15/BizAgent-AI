@@ -28,6 +28,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "http://127.0.0.1:5173",
+        "https://frontend-olive-gamma-5ulqmpuck7.vercel.app",
+        "https://frontend-qcieffwng-ashoks-projects-d6078d34.vercel.app",
         *extra_origins,
     ],
     allow_origin_regex=r"^https://.*\.vercel\.app$",

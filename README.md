@@ -2,6 +2,15 @@
 
 BizAgent AI is an AI agent platform for small businesses that enables customers to interact with an AI assistant grounded strictly in business documents. The agent assists with answering inquiries via RAG, booking appointments, creating support tickets, and capturing customer leads.
 
+## Live Deployment (Free Tier)
+
+- **Frontend (Vercel)**: [https://frontend-olive-gamma-5ulqmpuck7.vercel.app](https://frontend-olive-gamma-5ulqmpuck7.vercel.app)
+- **Backend API (Render)**: [https://bizagent-ai-backend.onrender.com](https://bizagent-ai-backend.onrender.com)
+- **Health Check**: [https://bizagent-ai-backend.onrender.com/health](https://bizagent-ai-backend.onrender.com/health)
+- **Swagger API Docs**: [https://bizagent-ai-backend.onrender.com/docs](https://bizagent-ai-backend.onrender.com/docs)
+
+> **Note**: The live deployment uses MongoDB Atlas for cloud persistence and Google Gemini for LLM & embeddings. All secrets are configured strictly through environment variables on Render and Vercel, with no sensitive keys stored in the repository.
+
 ## Tech Stack
 
 - **Backend**: FastAPI, Python 3.13
@@ -104,4 +113,4 @@ MCP Server:
 - **Day 4b**: FastMCP server (`backend/mcp_server.py`) exposing 4 tools (`search_documents`, `book_appointment`, `create_ticket`, `save_lead`) over stdio transport + Google ADK agent (`gemini-3.6-flash`) integrated with Runner and InMemorySessionService, accessible via `POST /api/adk/chat`.
 - **Day 5**: React frontend (Vite) with 3 pages (Customer Chat, Upload Documents, Admin Dashboard), FastAPI CORS middleware, and admin list endpoints (`GET /api/admin/tickets`, `GET /api/admin/appointments`, `GET /api/admin/leads`).
 - **Day 6**: Docker containerization — backend (`python:3.13-slim`), multi-stage frontend build with Nginx (`node:22-alpine` -> `nginx:alpine`), and Docker Compose orchestration (`docker compose up --build`).
-- AWS and Vercel deployments are planned for Day 7.
+- **Day 7**: Production deployment — backend deployed to Render Free Tier (`https://bizagent-ai-backend.onrender.com`), frontend deployed to Vercel (`https://frontend-olive-gamma-5ulqmpuck7.vercel.app`), verified with live RAG and MongoDB Atlas agent appointment booking.
