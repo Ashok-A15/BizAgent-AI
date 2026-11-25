@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { API_BASE } from './config'
 
 export default function Upload() {
   const businessId = 'mysuru_clinic_01'
@@ -23,7 +24,7 @@ export default function Upload() {
     formData.append('business_id', businessId)
 
     try {
-      const res = await fetch('/api/documents/upload', {
+      const res = await fetch(`${API_BASE}/api/documents/upload`, {
         method: 'POST',
         body: formData,
       })

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { API_BASE } from './config'
 
 export default function Admin() {
   const [tickets, setTickets] = useState([])
@@ -13,10 +14,10 @@ export default function Admin() {
     setError(null)
     try {
       const [ticketsRes, apptsRes, leadsRes, docsRes] = await Promise.all([
-        fetch('/api/admin/tickets'),
-        fetch('/api/admin/appointments'),
-        fetch('/api/admin/leads'),
-        fetch('/api/documents'),
+        fetch(`${API_BASE}/api/admin/tickets`),
+        fetch(`${API_BASE}/api/admin/appointments`),
+        fetch(`${API_BASE}/api/admin/leads`),
+        fetch(`${API_BASE}/api/documents`),
       ])
 
       const [ticketsData, apptsData, leadsData, docsData] = await Promise.all([

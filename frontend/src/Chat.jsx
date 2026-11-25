@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { API_BASE } from './config'
 
 export default function Chat() {
   const businessId = 'mysuru_clinic_01'
@@ -16,7 +17,7 @@ export default function Chat() {
     setResponse(null)
 
     try {
-      const res = await fetch('/api/agent/chat', {
+      const res = await fetch(`${API_BASE}/api/agent/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
